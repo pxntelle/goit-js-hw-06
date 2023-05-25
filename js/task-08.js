@@ -1,26 +1,23 @@
-const loginForm = document.querySelector(".login-form");
+const form = document.querySelector(".login-form");
 
-loginForm.addEventListener("submit", handleSubmit);
+form.addEventListener("submit", handleSubmit);
 
 function handleSubmit(event) {
-  event.preventDefault(); // Забороняє перезавантаження сторінки при відправленні форми
+  event.preventDefault();
 
-  const formData = {};
-  const formElements = event.target.elements;
+  const email = form.elements.email.value;
+  const password = form.elements.password.value;
 
-  for (let i = 0; i < formElements.length; i++) {
-    const element = formElements[i];
-
-    if (element.type !== "submit") {
-      if (element.value === "") {
-        alert("Всі поля повинні бути заповнені");
-        return;
-      }
-
-      formData[element.name] = element.value;
-    }
+  if (!email || !password) {
+    alert("Будь ласка, заповніть усі поля!");
+    return;
   }
 
+  const formData = {
+    email,
+    password,
+  };
+
   console.log(formData);
-  loginForm.reset();
+  form.reset();
 }
