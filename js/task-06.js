@@ -23,4 +23,4 @@ if (inputLength === dataLength) {
 function setValidationClass(classToAdd, classToRemove) {
 validationInput.classList.remove(classToRemove);
 validationInput.classList.add(classToAdd);
-}
+});
